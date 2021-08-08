@@ -10,6 +10,9 @@ python-dotenv = "*"
 psycopg2 = "*"
 pyjwt = "*"
 django-choices = "*"
+uvicorn = {extras = ["standart"], version = "*"}
+gunicorn = "*"
+websockets = "*"
 
 [dev-packages]
 

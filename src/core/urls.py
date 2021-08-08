@@ -20,6 +20,8 @@ from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('chat/', include('chat.urls')),
+
 ]
 urlpatterns += i18n_patterns(
     path(_('api/'), include('main.urls')),
