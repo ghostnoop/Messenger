@@ -13,6 +13,8 @@ django-choices = "*"
 uvicorn = {extras = ["standart"], version = "*"}
 gunicorn = "*"
 websockets = "*"
+channels = "*"
+channels-redis = "*"
 
 [dev-packages]
 

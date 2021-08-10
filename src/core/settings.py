@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     'main',
     'chat',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,17 @@ AUTH_USER_MODEL = "main.User"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REDIS_CONNECTION = os.environ.get("REDIS_CONNECTION", "redis://localhost:6379/0")
+# Конфигурация Channels
+ASGI_APPLICATION = "core.asgi.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [REDIS_CONNECTION],
+            "symmetric_encryption_keys": [SECRET_KEY],
+        },
+    },
+}
